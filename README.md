@@ -16,13 +16,17 @@ Requirements for the Java 8 project: (all these features are working)
   
 * This assignment has to use threads that have to work simultaneously. The business logic should be hidden inside classes - The post office should not know at all that there exist different types of rockets.
 
-
+**1st part**
 Every planet and moon has a post office where the post office can:
+
 1.	Load the packets to the rocket.
+
 2.	Off-load the packets from the rocket.
+
 3.	"Service" the rocket.
-a.	Fuel-tanking- Servicing includes increasing the fuel of the rocket to the maximum. 
-b.	Only on the planets Jupiter and Neptune: Servicing also includes exchanging the cosmic ray indicator(9th part) if the indicator has equal to or less than 2 starts.
+
+  a.	Fuel-tanking- Servicing includes increasing the fuel of the rocket to the maximum. 
+  b.	Only on the planets Jupiter and Neptune: Servicing also includes exchanging the cosmic ray indicator(9th part) if the indicator has equal to or less than 2 starts.
 
 
 
