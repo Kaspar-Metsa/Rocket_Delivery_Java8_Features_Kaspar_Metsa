@@ -43,6 +43,7 @@ The rocket uses dark matter as fuel which the rocket gets from "service" in the 
 4.	It is important that the rocket counts itself how many units of fuel it received during the fuel-tanking and the rocket also needs to keep a count of how much fuel it currently has.
 
 **3rd Part**
+
 To the 2 planets Mercury and Venus post can only be delivered with a special heat-resistant rocket(My comment: Probably has to be done with one class extending another)
 
 1.	These rockets consume more fuel: Every start consumes 25% of total fuel
@@ -50,11 +51,13 @@ To the 2 planets Mercury and Venus post can only be delivered with a special hea
 2.	The start from Mercury and Venus consumes even more fuel: Start from Mercury and Venus consumes 50% fuel.
 
 **4th Part**
+
 The rocket can only carry a maximum of 100kg of packages.
 
 1.	The heat-resistant rocket can only carry a maximum of 80kg of packages.
 
 **5h Part: Package**
+
 Every package that is going to be transported has these attributes:
 
 1. The place it is transported from
@@ -64,7 +67,9 @@ Every package that is going to be transported has these attributes:
 3. Weight(between 1-80kg)
 
 **6th Part: Post offices**
+
 Every Post Office keeps count of received packages. At any moment you can ask from post office:
+
 1.	How many packages has it received?
 
 2.	What is the total weight of all the received packages?
@@ -76,21 +81,31 @@ Every Post Office keeps count of received packages. At any moment you can ask fr
 5.	You can ask the number of packages according to your specific criteria, examples:(My comment: Probably has to be done with Java 8 Streams)
 
  a.	How many packages have been sent from Pluto?
+ 
  b.	How many packages over 7kg have been sent to this post office?
+ 
  c.	How many packages under 60kg have been sent from Venus?
+ 
  d.	NB! This does not mean that you create 3 methods for these 3 examples but 1 method that can solve these 3 questions if you give requirements for input - PLEASE SEE EXAMPLE.(My comment: PLEASE SEE RENTALSYSTEM CLASS IN EXAMPLE, THIS HAS TO BE DONE EXACTLY IN THE SAME WAY - YOU MUST USE JAVA 8 LAMBDAS, FUNCTIONAL INTERFACES(PREDICATES), OPTIONALS, STREAMS, METHOD REFERENCES, SYNCRONIZED THREADS WITH WAIT/NOTIFY)
 
 **7th Part: Time to travel from one planet to other**
+
 1.	The time to travel from any planet/moon to another planet/moon is always 15ms, the distance does not matter.
 
 **8th Part: Starting the system and rules**
+
 1.	When the system starts create 20 regular rockets and 5 heat resistant rockets.
 
 2.	Create a separate thread that only creates packages. For every packet it RANDOMLY assigns:
+
  a.	Where this package came from (source post office)
+ 
  b.	Where this package is going to (destination post office)
+ 
  c.	Weight of the package
+ 
  d.	...And the thread places the package to the back of the queue of the source post office.
+ 
  e.	There is 3ms between creating every package. Total of 1500 packages are created.
 
 3.	All rockets need to work at the simultaneously - at the same time(My comment: I think it has to be done with Threads that Use/Notify)
@@ -105,7 +120,9 @@ Every Post Office keeps count of received packages. At any moment you can ask fr
 
 **9th Part - Cosmic Ray Indicator**
 1.	The cosmic ray indicator only lasts 25 starts, after 25 starts it needs to be exchanged:
+
  a.	The indicator is never exchanged before it only has 2 starts or less left(So for the example of the rocket's indicator has 22 starts with the indicator, it is not exchanged, at 23-25 starts it must be exchanged)
+ 
  b.	The cosmic ray indicator can only be exchanged in Jupiter or Neptune.
 
 **10th Part - Additional Requirements for logistics**
@@ -115,6 +132,7 @@ Every Post Office keeps count of received packages. At any moment you can ask fr
  a.	This is why rockets don't always off-load all the packages in the post office, just those packages are off-loaded that are needed on that planet the rocket is currently visiting.
 
 3.	Rocket also takes packages if it already has some packages, but it has enough room to carry some more:
+
  a.	In this case it prefers packages, that are being sent to the same planet that some other packages the rocket is already carrying, instead of packages that are being sent to a different planet.
 
 b.	Example: Rocket picks up 2 packages from Venus planet that need to be delivered to Earth planet and 1 package from Venus planet that need to be delivered to Mars planet. It delivers 1 package to Mars. Now on Mars, the  rocket has additional room so it picks up another package from Mars. If Mars has any package that is meant to go to Earth, it prefers that package because it goes there next anyway. If there is no package that is meant to be delivered to Earth, it takes any other package that adds another destination for the rocket. The rocket continues to go to Earth.
